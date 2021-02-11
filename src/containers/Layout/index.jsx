@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router'
 import { Container, Row, Col } from 'reactstrap';
 
-import Cars from '../cars'
+import Cars from '../Cars'
 
 const routes = (
     <Switch>

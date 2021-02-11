@@ -12,7 +12,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import {Provider} from 'react-redux'
 
 import createRootReducer from './reducers'
-import Layout from './containers/layout/index.jsx'
+import Layout from './containers/Layout/index.jsx'
 
 const history = createBrowserHistory()
 const middlewares = [thunk, routerMiddleware(history)]
