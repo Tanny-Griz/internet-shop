@@ -1,18 +1,21 @@
 // import './index.css'
-import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {applyMiddleware, createStore} from 'redux'
 import {createBrowserHistory} from 'history'
 import thunk from 'redux-thunk'
-import {ConnectedRouter, routerMiddleware} from 'connected-react-router'
+import {routerMiddleware} from 'connected-react-router'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {Provider} from 'react-redux'
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { createStore, applyMiddleware } from 'redux'
 import createRootReducer from './reducers'
+
 import Layout from './containers/Layout/index.jsx'
+import Blog from './components/Blog'
+import Contact from './components/Contact'
 
 const history = createBrowserHistory()
 const middlewares = [thunk, routerMiddleware(history)]
@@ -23,11 +26,16 @@ const store = createStore(
 )
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Layout />
-    </ConnectedRouter>
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <Switch>
+        <Route exact path="/" component={Layout} />
+        <Route path='/blog' component={Blog}/>
+        <Route path='/contact' component={Contact}/>
+      </Switch>
+    </Provider>
+  </BrowserRouter>,
+
   document.getElementById('root')
-);
+)
 

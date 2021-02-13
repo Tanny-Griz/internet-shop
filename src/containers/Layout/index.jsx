@@ -1,24 +1,72 @@
-import React from 'react'
-import { Switch, Route } from 'react-router'
-import { Container, Row, Col } from 'reactstrap';
+import React, {useState, useEffect} from 'react'
+import { Container, Row, Col } from 'reactstrap'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Cars from '../Cars'
+import Sidebar from '../Sidebar/index'
+import Pagination from '../../components/Pagination'
+import Header from '../../components/Header.jsx'
+import Footer from '../../components/Footer.jsx'
 
-const routes = (
-    <Switch>
-        <Route path='/' component={Cars} exact />
-    </Switch>
-)
+const Layout = () => {
 
-const Layout = () => (
-    <div className="">
-        <Container>
-            <Row>
-                <Col md="4" >sideBar</Col>
-                <Col md="8" >{routes}</Col>
-            </Row>         
-        </Container>
-    </div>
+    const cars = useSelector(state => state.carsPage)
+
+    const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postPerPage] = useState(10)
+
+    const [filtredCars, setfiltredCars] = useState([])
+
+    useEffect(() => {
+        setLoading(true)
+        setfiltredCars([...cars])
+        setLoading(false)
+    }, [cars])
+
+    const indexOfLastPost = currentPage * postPerPage
+    const idexOfFirstPost = indexOfLastPost - postPerPage
+    const currentPosts = filtredCars.slice(idexOfFirstPost, indexOfLastPost)
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+    return (
+        <>
+        <Header />
+        <div className="wrapper">
+            <Container>
+                <Row>
+                    <Col md="12" className="bread-crumbs">
+                        <i className="fas fa-long-arrow-alt-left"></i>
+                        <Link to="/blog">
+                            &nbsp;Blog
+                        </Link>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md="4">
+                        <Sidebar cars={cars} filtredCars={filtredCars} setfiltredCars={setfiltredCars}  />
+                    </Col>
+                    <Col md="8">
+                        <Cars posts={currentPosts} loading={loading} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Pagination 
+                            postPerPage={postPerPage} 
+                            totalPosts={filtredCars.length} 
+                            paginate={paginate} 
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+        <Footer />
+    </>
 )
+}
+
 
 export default Layout
