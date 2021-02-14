@@ -308,6 +308,7 @@ footer {
 .topbar {
   padding: 3px;
   display: flex;
+  flex-direction: column;
   span {
     display: inline-block;
     color: #fff;
@@ -315,6 +316,9 @@ footer {
     border-radius: 4px;
     margin-right: 5px;
     padding: 3px;
+  }
+  p {
+    font-weight: 700;
   }
 }
 .select-price {

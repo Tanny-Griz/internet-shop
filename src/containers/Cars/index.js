@@ -15,13 +15,13 @@ const Cars = ({posts, loading}) => {
     return (
         <>
             {posts.map((item, index) => {
-                // if ( index % 4 == 0 && index != 0){
-                //     return (
-                //         <>
-                //         <div style={{display: 'flex', justifyContent: 'center'}}><img src={imgUrl + 'banner1.png'} alt="banner" /></div>   
-                //         </>        
-                //     )            
-                // } else {
+                if ( index % 4 == 0 && index != 0){
+                    return (
+                        <>
+                        <div style={{display: 'flex', justifyContent: 'center'}}><img src={imgUrl + 'banner1.png'} alt="banner" /></div>   
+                        </>        
+                    )            
+                } else {
                     return (
                         <div className="holder-card" key={index} >
                             <div className="item-card">
@@ -45,7 +45,7 @@ const Cars = ({posts, loading}) => {
                         </div> 
                     )
                 }
-            // }
+            }
             )}
         </>
 
