@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React  from 'react'
 
 const Cars = ({posts, loading}) => {
-
     if(loading) {
         return (
             <>
@@ -17,13 +16,13 @@ const Cars = ({posts, loading}) => {
             {posts.map((item, index) => {
                 if ( index % 4 == 0 && index != 0){
                     return (
-                        <>
-                        <div style={{display: 'flex', justifyContent: 'center'}}><img src={imgUrl + 'banner1.png'} alt="banner" /></div>   
-                        </>        
+                        <div key={index + "#"} style={{display: 'flex', justifyContent: 'center'}}>
+                            <img src={imgUrl + 'banner1.png'} alt="banner" />
+                        </div>      
                     )            
                 } else {
                     return (
-                        <div className="holder-card" key={index} >
+                        <div className="holder-card" key={index + '@'} >
                             <div className="item-card">
                                 <div className="card-img">
                                     <img src={imgUrl + item.id + '.png'} alt={item.title} />

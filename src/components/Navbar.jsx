@@ -64,6 +64,9 @@ const Navbar = () => {
                             Sign Up
                         </Link>
                     </li>
+                    <li className='nav-item'>
+                        <a className="nav-links lang"><img src="../../img/lang.png" alt="lang"/></a>
+                    </li>
                 </ul>
             </nav>
         </>

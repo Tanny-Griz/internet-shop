@@ -11,7 +11,6 @@ import Header from '../../components/Header.jsx'
 import Footer from '../../components/Footer.jsx'
 
 const Layout = () => {
-
     const cars = useSelector(state => state.carsPage)
 
     const [loading, setLoading] = useState(false)

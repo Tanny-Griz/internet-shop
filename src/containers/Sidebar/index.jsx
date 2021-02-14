@@ -72,7 +72,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
             <div>
                 <Form>
                     <FormGroup>
-                    <Label for="vehicle">Vehicle type</Label>
+                    <Label for="vehicle"><span className="label-title">Vehicle type</span></Label>
                         <Select
                             placeholder={<div>all</div>}
                             id="vehicle"
@@ -83,7 +83,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="manufacturer">Manufacturer</Label>
+                        <Label for="manufacturer"><span className="label-title">Manufacturer</span></Label>
                         <Select
                             placeholder={<div>all</div>}
                             isMulti
@@ -97,7 +97,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                         />
                     </FormGroup>
                     <FormGroup>
-                    <Label for="model">Model</Label>
+                    <Label for="model"><span className="label-title">Model</span></Label>
                         <Select
                             placeholder={<div>all</div>}
                             id="model"
@@ -111,7 +111,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
 
                 <Form>
                     <FormGroup className="form-box">
-                    <Label>Year</Label>
+                    <Label><span className="label-title">Year</span></Label>
                         <div>
                             <Select
                                 placeholder={<div>from</div>}
@@ -129,7 +129,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                         </div>
                     </FormGroup>
                     <FormGroup className="form-box">
-                    <Label>Milliage <span>(miles)</span></Label>
+                    <Label><span className="label-title">Milliage </span><span>(miles)</span></Label>
                         <div>
                             <Select
                                 placeholder={<div>from</div>}
@@ -147,7 +147,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                         </div>
                     </FormGroup>
                     <FormGroup className="form-box">
-                    <Label>Price <span>($)</span></Label>
+                    <Label><span className="label-title">Price</span><span>($)</span></Label>
                         <div>
                             <Select
                                 placeholder={<div>from</div>}
@@ -168,7 +168,7 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                
                 <Form>
                     <FormGroup className="form-box">
-                    <Label>Days on Market</Label>
+                    <Label><span className="label-title">Days on Market</span></Label>
                         <div>
                             <Select
                                 placeholder={<div>from</div>}
@@ -189,10 +189,10 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
 
                 <Form>
                 <FormGroup check>
-                    <p>Transmission</p>
+                    <p><span className="label-title">Transmission</span></p>
                     {initialFiltres[3].transmission.map(t => {
                         return (
-                            <Label check>
+                            <Label key={t} check>
                                 <Input type="checkbox" />{t}
                             </Label>
                         )
@@ -202,10 +202,10 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
 
                 <Form>
                     <FormGroup check>
-                        <p>Drivertrain</p>
+                        <p><span className="label-title">Drivertrain</span></p>
                         {initialFiltres[4].drivertrain.map(t => {
                             return (
-                                <Label check>
+                                <Label key={t} check>
                                     <Input type="checkbox" />{t}
                                 </Label>
                             )
@@ -215,16 +215,62 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
 
                 <Form>
                     <FormGroup check>
-                        <p>Fuel Type</p>
+                        <p><span className="label-title">Fuel Type</span></p>
                         {initialFiltres[5].fuel_type.map(t => {
                             return (
-                                <Label check>
+                                <Label key={t} check>
                                     <Input type="checkbox" />{t}
                                 </Label>
                             )
                         })}
                     </FormGroup>
                 </Form>
+
+                <Form>
+                    <FormGroup check>
+                        <p><span className="label-title">New / Used / CPO</span></p>
+                            <Label check>
+                                <Input type="checkbox" />Certified Pre-Owner
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />Used
+                            </Label>
+                    </FormGroup>
+                </Form>
+
+                <Form>
+                    <FormGroup check>
+                        <p><span className="label-title">Seating Capacity</span></p>
+                            <Label check>
+                                <Input type="checkbox" />2
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />4
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />5
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />7
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />Unknown
+                            </Label>
+                    </FormGroup>
+                </Form>
+
+                <Form>
+                    <FormGroup check>
+                        <p><span className="label-title">Seller Type</span></p>
+                            <Label check>
+                                <Input type="checkbox" />Seller
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />Private
+                            </Label>
+                    </FormGroup>
+                </Form>
+
             </div>
         </>
 
