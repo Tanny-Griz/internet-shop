@@ -304,7 +304,34 @@ footer {
     }
   }
 }
-
+// TOPBAR
+.topbar {
+  padding: 3px;
+  display: flex;
+  span {
+    display: inline-block;
+    color: #fff;
+    background-color: #C0C0C0;
+    border-radius: 4px;
+    margin-right: 5px;
+    padding: 3px;
+  }
+}
+.select-price {
+  justify-content: flex-end;
+  .form-control {
+    background-color: inherit;
+    border: none;
+    color: #009FD7;
+  }
+  .form-control:focus {
+    color: #495057;
+    background-color: inherit;
+    border-color: inherit;
+    outline: 0;
+    box-shadow: none;
+}
+}
 @media screen and (max-width: 960px) {
   .navbar {
     .nav-links-mobile {

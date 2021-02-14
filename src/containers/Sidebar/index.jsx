@@ -8,7 +8,7 @@ const filterYear = [
     {value: '2020', label: '2020'}
 ]
 
-const Sidebar = ({cars, setfiltredCars}) => {
+const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}) => {
 
     let type = [...cars].map(car => car.type)
     let brand = [...cars].map(car => car.manufacturer)
@@ -44,15 +44,21 @@ const Sidebar = ({cars, setfiltredCars}) => {
             : setfiltredCars([...newArr])
     }
 
-    // const handleManufactured = (e, option) => {
+    const handleManufactured = (e, option) => {
+        let newArr = []
+        if (option.action === 'select-option') {
+            for(let key of e) {
+                newArr = [...cars].filter(car => car.manufacturer === key.value)
+                setSelectOptionBrand([key.value, ...selectOptionBrand])
+            }
+            setfiltredCars([...newArr])
+        }
 
-    //     if (option.action === 'select-option') {
-
-    //     }
-    //     if (option.action === 'clear') {
-    //         setfiltredCars([...cars])
-    //     }     
-    // }
+        if (option.action === 'clear') {
+            setfiltredCars([...cars])
+            setSelectOptionBrand([])
+        }     
+    }
 
     const handleModel = (e) => {
         const newArr = [...cars].filter(car => car.model === e.value)
@@ -87,7 +93,7 @@ const Sidebar = ({cars, setfiltredCars}) => {
                             } )}
                             className="mb-20"
                             classNamePrefix="select"
-                            // onChange={handleManufactured}
+                            onChange={handleManufactured}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -219,7 +225,6 @@ const Sidebar = ({cars, setfiltredCars}) => {
                         })}
                     </FormGroup>
                 </Form>
-
             </div>
         </>
 

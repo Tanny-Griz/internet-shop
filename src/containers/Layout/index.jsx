@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import Cars from '../Cars'
 import Sidebar from '../Sidebar/index'
+import TopBar from '../TopBar/index'
 import Pagination from '../../components/Pagination'
 import Header from '../../components/Header.jsx'
 import Footer from '../../components/Footer.jsx'
@@ -16,8 +17,10 @@ const Layout = () => {
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postPerPage] = useState(10)
+    const [selectOptionBrand, setSelectOptionBrand] = useState([])
 
     const [filtredCars, setfiltredCars] = useState([])
+
 
     useEffect(() => {
         setLoading(true)
@@ -46,10 +49,30 @@ const Layout = () => {
                 </Row>
                 <Row>
                     <Col md="4">
-                        <Sidebar cars={cars} filtredCars={filtredCars} setfiltredCars={setfiltredCars}  />
+                        <Sidebar 
+                            selectOptionBrand={selectOptionBrand}
+                            setSelectOptionBrand={setSelectOptionBrand} 
+                            cars={cars} 
+                            filtredCars={filtredCars} 
+                            setfiltredCars={setfiltredCars}  
+                        />
                     </Col>
                     <Col md="8">
-                        <Cars posts={currentPosts} loading={loading} />
+                        <Row>
+                            <Col md="12">
+                                <TopBar 
+                                    selectOptionBrand={selectOptionBrand}
+                                    setSelectOptionBrand={setSelectOptionBrand} 
+                                    filtredCars={filtredCars} 
+                                    setfiltredCars={setfiltredCars}  
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md="12">
+                                <Cars posts={currentPosts} loading={loading} />
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
                 <Row>
