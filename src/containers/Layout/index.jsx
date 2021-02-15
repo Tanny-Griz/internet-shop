@@ -36,7 +36,7 @@ const Layout = () => {
     return (
         <>
         <Header />
-        <div className="wrapper">
+        <main className="wrapper">
             <Container>
                 <Row>
                     <Col md="12" className="bread-crumbs">
@@ -84,7 +84,7 @@ const Layout = () => {
                     </Col>
                 </Row>
             </Container>
-        </div>
+        </main>
         <Footer />
     </>
 )
