@@ -383,6 +383,15 @@ footer {
   }
 }
 @media screen and (max-width: 960px) {
+  form {
+    .form-box {
+    .css-2b097c-container {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+  }
   .navbar {
     .nav-links-mobile {
       display: flex;

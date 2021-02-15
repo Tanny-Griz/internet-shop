@@ -17,14 +17,15 @@ const TopBar = ({filtredCars, setfiltredCars, selectOptionBrand}) => {
         <>
             <div className="topbar">
                 <div><p><b style={{'color': '#009FD7'}}>{filtredCars.length}</b> Ads matching your search criteria</p></div>
-                {selectOptionBrand && selectOptionBrand.map(o => {
-                    return (
-                        <div key={'@'+ o} className="">
-                            <span>{o}&nbsp;<i className="fas fa-times"></i></span>
-                        </div>                        
-                    )
-                })}
-
+                <div style={{'display': 'flex'}}>
+                    {selectOptionBrand && selectOptionBrand.map(o => {
+                        return (
+                            <div key={'@'+ o} className="">
+                                <span>{o}&nbsp;<i className="fas fa-times"></i></span>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <Row className="select-price">
                 <Col md="4">

@@ -271,6 +271,17 @@ const Sidebar = ({cars, setfiltredCars, selectOptionBrand, setSelectOptionBrand}
                     </FormGroup>
                 </Form>
 
+                <Form style={{"backgroundColor" : "inherit", "boxShadow" : "none"}}>
+                    <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" />Hide vehicles without photos
+                            </Label>
+                            <Label check>
+                                <Input type="checkbox" />Only show recent price drops
+                            </Label>
+                    </FormGroup>
+                </Form>
+
             </div>
         </>
 
